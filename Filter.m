@@ -1,0 +1,12 @@
+butw = mkfilter(2,4,'butterw');
+cheb = mkfilter(2,4,'cheby',3);
+h1 = bodeplot(butw, cheb);
+p1 = getoptions(h1);
+p1.FreqUnits = 'Hz';
+p1.XLimMode = 'manual';
+p1.YLimMode = 'manual';
+p1.Xlim = {[1, 10^2]};
+p1.Ylim = {[-50, 0]};
+p1.PhaseVisible = 'off';
+setoptions(h1, p1);
+legend('Butterworth','Chebyshev');
